@@ -75,7 +75,7 @@
 			<!-- 为生成的接口添加父接口-->
 			<property name="rootInterface" value=""/>
 		</javaClientGenerator>
-		<table tableName="api" domainObjectName="Api" />
+<!--		<table tableName="api" domainObjectName="Api" />-->
 		<!--<table tableName="api_group" domainObjectName="ApiGroup" />-->
 		<!--<table tableName="lession" schema="louis">
 			&lt;!&ndash; optional   , only for mybatis3 runtime
