@@ -1,6 +1,7 @@
-import com.lip.api.core.dao.ApiMethodMapper;
-import com.lip.api.core.model.ApiMethod;
-import com.lip.api.core.service.ApiMethodService;
+import com.lip.api.core.model.Api;
+import com.lip.api.core.model.ApiGroup;
+import com.lip.api.core.service.ApiGroupService;
+import com.lip.api.core.service.ApiService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +18,16 @@ import javax.annotation.Resource;
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class ApiMethodTest {
     @Autowired
-    private ApiMethodService apiService;
+    private ApiService apiService;
+    @Autowired
+    private ApiGroupService groupService;
     @Test
     public void insertTest()
     {
-        ApiMethod method=new ApiMethod();
-        method.setMid(6);
-        method.setType("PUT");
-        //apiService.insertApiMethod(method);
-        //apiMethodMapper.insert(method);
-        ApiMethod m2=apiService.getMethod(1);
-       System.out.println(m2.toString());
+        ApiGroup group=new ApiGroup();
+        group.setId(1);
+        group.setName("用户管理");
+        group.setTitle("user");
+        groupService.insertApiGroup(group);
     }
 }

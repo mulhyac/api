@@ -48,5 +48,8 @@
 		<!-- 内存中的最大值 -->
 		<property name="maxInMemorySize" value="40960" />
 	</bean>
+	<mvc:resources location="/WEB-INF/resource/" mapping="/resource/**" />
+	<mvc:resources location="/WEB-INF/tpl/" mapping="/tpl/**" />
 	<import resource="spring-mybatis.xml"/>
+	<mvc:default-servlet-handler/>
 </beans>

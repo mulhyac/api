@@ -1,0 +1,46 @@
+.KelpJSONView
+{
+    overflow:auto;
+    font-family:inherit;
+    font-weight:normal;
+    font-style:normal;
+    font-size:16px;
+    background-color:#fff;
+    padding: 10px;
+}
+.KelpJSONView ol li
+{
+    white-space:nowrap;
+    list-style: none;
+}
+.jsonhighlight
+{
+    background-color:#fff;
+}
+.jsonname
+{
+    color:#0A8021;
+}
+.jsonstring
+{
+    color:#268BD2;
+}
+.jsonnull
+{
+    color:#d63Bd2;
+}
+.jsonnumber
+{
+    color:#964B32;
+}
+.jsonboolean
+{
+    color:#b64B72;
+}
+.jsontag
+{
+    color:#333;
+}
+.jsonComment{
+    color:#999;
+}

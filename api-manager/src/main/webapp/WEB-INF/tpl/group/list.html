@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div class="mt10 mng-cloak" ng-init="getGroupList()">
+    <div  class="col-lg-8 col-md-12" >
+        <ul class="list-group" ng-repeat="group in group_list">
+            <li class="list-group-item">{{group.name}} - <span class="">{{group.title}}</span>
+                <!-- <span class="badge badge-primary pointer" ng-click="groupEdit($index)"><i class="glyphicon glyphicon-pencil"></i></span> -->
+                <a class="badge badge-primary pointer" ng-href="#/group/edit/{{group.id}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                <span class="badge badge-danger pointer" ng-click="groupDelete($index)"><i class="glyphicon glyphicon-remove"></i></span>
+            </li>
+        </ul>
+        <div class="alert alert-warning" ng-if="group_list.length==0" ng-cloak>该项目还没有分组，快去添加一个吧~</div>
+    </div>
+</div>
+</html>

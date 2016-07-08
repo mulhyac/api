@@ -182,7 +182,7 @@
     </dependencies>
     <build>
         <finalName>api-manager</finalName>
-        <plugins>
+<!--        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
@@ -190,12 +190,12 @@
                 <configuration>
                     <webResources>
                         <resource>
-                            <!-- this is relative to the pom.xml directory -->
+                            &lt;!&ndash; this is relative to the pom.xml directory &ndash;&gt;
                             <directory>web</directory>
                         </resource>
                     </webResources>
                 </configuration>
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
 </project>
