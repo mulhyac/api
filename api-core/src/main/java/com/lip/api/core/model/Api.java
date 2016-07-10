@@ -1,5 +1,12 @@
 package com.lip.api.core.model;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class Api {
     private Integer id;
 
@@ -18,6 +25,7 @@ public class Api {
     private String parameter;
 
     private String remark;
+    private JSONArray params;
 
     public Api(Integer id, Integer groupId, String name, String brief, String url, String method, String output, String parameter, String remark) {
         this.id = id;
@@ -105,5 +113,19 @@ public class Api {
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
+    }
+    public  JSONArray getParams()
+    {
+        return  JSONArray.parseArray(parameter);
+    }
+    public static  void main(String args[])
+    {
+        String src="[{para_name: \"userId\", para_type: \"string\", para_must: \"是\", para_intro: \"\"},{para_name: \"userId\", para_type: \"string\", para_must: \"是\", para_intro: \"\"}]";
+        JSONArray array=JSONArray.parseArray(src);
+        for(int i=0;i<array.size();i++)
+        {
+            System.out.println(array.getJSONObject(i));
+        }
+
     }
 }

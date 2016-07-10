@@ -29,23 +29,19 @@
         <tr>
             <td class="api-label">输入参数：</td>
             <td>
-                <span ng-if="api_info.parameter==''">无</span>
-                <table class="table" ng-if="api_info.parameter!=''" ng-cloak>
+                <span ng-if="api_info.params==''">无</span>
+                <table class="table" ng-if="api_info.params!=''" ng-cloak>
                     <tr>
                         <th width="100">key</th>
                         <th width="100">参数类型</th>
                         <th width="100">是否必须</th>
                         <th>参数解释</th>
                     </tr>
-                    <tr ng-repeat="para in api_info.parameter">
+                    <tr ng-repeat="para in api_info.params">-
                         <td>{{para.para_name}}</td>
                         <td>{{para.para_type}}</td>
-                        <td>
-                            {{para.para_must}}
-                        </td>
-                        <td>
-                            {{para.para_intro}}
-                        </td>
+                        <td>{{para.para_must}}</td>
+                        <td>{{para.para_intro}}</td>
                     </tr>
                 </table>
             </td>

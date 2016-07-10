@@ -50,6 +50,7 @@
 	</bean>
 	<mvc:resources location="/WEB-INF/resource/" mapping="/resource/**" />
 	<mvc:resources location="/WEB-INF/tpl/" mapping="/tpl/**" />
+	<mvc:resources location="/WEB-INF/fonts/" mapping="/fonts/**" />
 	<import resource="spring-mybatis.xml"/>
 	<mvc:default-servlet-handler/>
 </beans>

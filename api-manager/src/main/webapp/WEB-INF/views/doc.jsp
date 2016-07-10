@@ -15,10 +15,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="apiview,API文档管理,接口文档,API测试工具,API生成工具,Api,api管理,api文档,api在线">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootflat/2.0.4/css/bootflat.min.css">
-    <link rel="stylesheet" href="./resource/common.min.css">
-    <link rel="stylesheet" href="./resource/index.min.css">
+    <link rel="stylesheet" href="/resource/bootstrap.min.css">
+    <link rel="stylesheet" href="/resource/bootflat.min.css">
+    <link rel="stylesheet" href="/resource/common.min.css">
+    <link rel="stylesheet" href="/resource/index.min.css">
 </head>
 
 <body ng-app='apiview' ng-controller="PublicController">
@@ -98,17 +98,17 @@
 <link href="https://cdn.bootcss.com/pnotify/3.0.0/pnotify.buttons.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/resource/jquery.jsonView.css">
 
-<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/pnotify/3.0.0/pnotify.min.js"></script>
-<script src="https://cdn.bootcss.com/pnotify/3.0.0/pnotify.callbacks.min.js"></script>
-<script src="https://cdn.bootcss.com/pnotify/3.0.0/pnotify.confirm.min.js"></script>
-<script src="https://cdn.bootcss.com/1000hz-bootstrap-validator/0.10.2/validator.min.js"></script>
-<script src="https://cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
-<script src="https://cdn.bootcss.com/angular.js/1.4.2/angular.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdn.bootcss.com/angular.js/1.4.2/angular-route.min.js"></script>
-<script src="https://cdn.bootcss.com/angular.js/1.4.2/angular-animate.min.js"></script>
-<script src="https://cdn.bootcss.com/angular-md5/0.1.10/angular-md5.min.js"></script>
+<script src="/resource/jquery.min.js"></script>
+<script src="/resource/pnotify.min.js"></script>
+<script src="/resource/pnotify.callbacks.min.js"></script>
+<script src="/resource/pnotify.confirm.min.js"></script>
+<script src="/resource/validator.min.js"></script>
+<script src="/resource/require.min.js"></script>
+<script src="/resource/bootstrap.min.js"></script>
+<script src="/resource/angular.min.js"></script>
+<script src="/resource/angular-route.min.js"></script>
+<script src="/resource/angular-animate.min.js"></script>
+<script src="/resource/angular-md5.min.js"></script>
 <script src="/resource/jquery.jsonView.js"></script>
 <script src="/resource/app.min.js"></script>
 <script src="/resource/func.min.js"></script>
