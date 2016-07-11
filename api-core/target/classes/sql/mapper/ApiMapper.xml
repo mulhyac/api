@@ -12,6 +12,8 @@
       <arg column="output" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="parameter" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="remark" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="update_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -73,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, group_id, name, brief, url, method, output, parameter, remark
+    id, group_id, name, brief, url, method, output, parameter, remark, update_time, create_time
   </sql>
   <select id="selectByExample" parameterType="com.lip.api.core.model.ApiExample" resultMap="BaseResultMap">
     select
@@ -96,15 +98,77 @@
     </if>
   </delete>
   <insert id="insertSelective" parameterType="com.lip.api.core.model.Api">
-    insert into api(group_id,name,brief,url,method,output, parameter,remark)values(
+    insert into api
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="brief != null">
+        brief,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="method != null">
+        method,
+      </if>
+      <if test="output != null">
+        output,
+      </if>
+      <if test="parameter != null">
+        parameter,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null">
         #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="brief != null">
         #{brief,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
         #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="method != null">
         #{method,jdbcType=VARCHAR},
+      </if>
+      <if test="output != null">
         #{output,jdbcType=VARCHAR},
+      </if>
+      <if test="parameter != null">
         #{parameter,jdbcType=VARCHAR},
-        #{remark,jdbcType=VARCHAR})
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
   </insert>
   <select id="countByExample" parameterType="com.lip.api.core.model.ApiExample" resultType="java.lang.Integer">
     select count(*) from api
@@ -142,6 +206,12 @@
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
       </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -157,7 +227,9 @@
       method = #{record.method,jdbcType=VARCHAR},
       output = #{record.output,jdbcType=VARCHAR},
       parameter = #{record.parameter,jdbcType=VARCHAR},
-      remark = #{record.remark,jdbcType=VARCHAR}
+      remark = #{record.remark,jdbcType=VARCHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -188,6 +260,12 @@
       </if>
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}

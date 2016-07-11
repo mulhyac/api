@@ -2,6 +2,7 @@ package com.lip.api.core.service;
 
 import com.lip.api.core.dao.ApiGroupMapper;
 import com.lip.api.core.model.ApiGroup;
+import com.lip.api.core.model.ApiGroupExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,9 +34,11 @@ public class ApiGroupService {
      * 得到所有分组
      * @return
      */
-    public List<ApiGroup>getGroupList()
+    public List<ApiGroup>getGroupList(Integer pid)
     {
-        return groupDao.selectByExample(null);
+        ApiGroupExample example=new ApiGroupExample();
+        example.createCriteria().andPidEqualTo(pid);
+        return groupDao.selectByExample(example);
     }
 
     /**
@@ -54,5 +57,11 @@ public class ApiGroupService {
     public void editApiGroup(ApiGroup group)
     {
         groupDao.updateByPrimaryKey(group);
+    }
+    public void deleteByProject(Integer pid)
+    {
+        ApiGroupExample example=new ApiGroupExample();
+        example.createCriteria().andPidEqualTo(pid);
+        groupDao.deleteByExample(example);
     }
 }

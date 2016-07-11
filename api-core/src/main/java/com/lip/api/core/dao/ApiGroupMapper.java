@@ -22,10 +22,10 @@ public interface ApiGroupMapper {
     int deleteByPrimaryKey(Integer id);
 
     @Insert({
-        "insert into api_group (id, name, ",
-        "title)",
-        "values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, ",
-        "#{title,jdbcType=VARCHAR})"
+        "insert into api_group (id, pid, ",
+        "name, title)",
+        "values (#{id,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, ",
+        "#{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR})"
     })
     int insert(ApiGroup record);
 
@@ -35,7 +35,7 @@ public interface ApiGroupMapper {
 
     @Select({
         "select",
-        "id, name, title",
+        "id, pid, name, title",
         "from api_group",
         "where id = #{id,jdbcType=INTEGER}"
     })
@@ -50,7 +50,8 @@ public interface ApiGroupMapper {
 
     @Update({
         "update api_group",
-        "set name = #{name,jdbcType=VARCHAR},",
+        "set pid = #{pid,jdbcType=INTEGER},",
+          "name = #{name,jdbcType=VARCHAR},",
           "title = #{title,jdbcType=VARCHAR}",
         "where id = #{id,jdbcType=INTEGER}"
     })

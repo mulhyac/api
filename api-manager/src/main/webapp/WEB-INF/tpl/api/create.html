@@ -27,9 +27,9 @@
             <tr ng-controller="GroupController">
                 <td>选择分组：</td>
                 <td ng-init="getGroupList()">
-                    <select name="group_id" id="group_id" class="form-control" ng-model="api_data.group_id" required style="width:200px;">
+                    <select name="group_id" id="group_id" class="form-control" ng-model="api_data.groupId" required style="width:200px;">
                         <option value="0">不分组</option>
-                        <option ng-repeat="group in group_list" ng-value="{{group.group_id}}">{{group.group_name}}</option>
+                        <option ng-repeat="group in group_list" ng-value="{{group.id}}">{{group.name}}</option>
                     </select>
                 </td>
             </tr>
@@ -61,7 +61,7 @@
                 <td>请求参数：</td>
                 <td>
                     <span class="btn btn-xs btn-info" ng-click="apiAddParam()"><i class="glyphicon glyphicon-plus"></i></span>
-                    <div class="api-input mt5" ng-repeat="in in api_data.params">
+                    <div class="api-input mt10" ng-repeat="in in api_data.params">
                         <input type="text" class="form-control key-name l input-sm" name="para_name" size="9" placeholder="参数名(key)" ng-model="in.para_name" />
                         <select name="para_type" class="form-control key-type l input-sm" ng-model="in.para_type">
                             <option value="">参数类型</option>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    #side-menu-second {
+        width: 0 !important;
+    }
+    #main-content {
+        margin-left: 80px !important;
+    }
+</style>
+<div class="col-lg-6" ng-init="getActivity()">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">最新动态</h3>
+        </div>
+        <div class="panel-body">
+            <div class="activity mt20 " ng-repeat="ac in activity">
+                <div class="l"><img ng-src="{{ac.gravater}}" alt="" class="radius-circle gravater-sm"></div>
+                <div class="activity-wrap">
+                    <div class="inner">
+                        {{ac.userId}}&nbsp;{{ac.action}}了&nbsp;{{ac.apiName}}&nbsp;接口：
+                        <a ng-href="#/api/view/{{ac.apiId}}" ng-if="ac.action!='删除'">{{ac.brief}}</a>
+                        <span ng-if="ac.action=='删除'">{{ac.brief}}</span>
+                        <div class="time">
+                            <i class="glyphicon glyphicon-time"></i><span class="ml10">{{ac.time}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cl"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-6" ng-init="getStatistic()">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">文档简介</h3>
+        </div>
+        <div class="panel-body">
+            {{project_info.description}}
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">项目统计</h3>
+        </div>
+        <div class="panel-body tc">
+            <div class="col-xs-4">
+                <p class="f16">分组数量</p>
+                <span class="label label-primary">{{$stateParams.pid}}{{statistic_data.groupNum}}</span>
+            </div>
+            <div class="col-xs-4">
+                <p class="f16">接口数量</p>
+                <span class="label label-info">{{statistic_data.apiNum}}</span>
+            </div>
+            <div class="col-xs-4">
+                <p class="f16">项目成员</p>
+                <span class="label label-success ">{{statistic_data.memberNum}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default" ng-controller="MemberController" ng-init="getMemberList()">
+        <div class="panel-heading">
+            <h3 class="panel-title">项目成员</h3>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-xs-6 tc" ng-repeat="member in member_list">
+                    <img ng-src="{{member.gravater}}" class="gravater-sm radius-circle margin-auto">
+                    <p class="f16 b mt5">{{member.username}}</p>
+                </div>
+            </div>
+            <div class="mt10"><a href="#/member/list" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-plus"></i><span class="ml5">添加成员</span></a></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

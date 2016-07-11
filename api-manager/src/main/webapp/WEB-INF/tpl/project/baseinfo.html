@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form class="form-horizontal mt30 col-lg-8" role="form" name="project_form" data-toggle="validator" >
+    <div class="form-group has-feedback">
+        <label for="" class="col-lg-2 control-label">项目名称：</label>
+        <div class="col-lg-10 ">
+            <input type="text" name="name" placeholder="" class="form-control" required="required" pattern="\S{0,255}" ng-model="project_info.name" required>
+        </div>
+    </div>
+    <div class="form-group has-feedback">
+        <label for="" class="col-lg-2  control-label">项目简介：</label>
+        <div class="col-lg-10 ">
+            <textarea name="description" rows="6" class="form-control" ng-model="project_info.description" required></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-10  col-lg-offset-2 ">
+            <input type="button" class="btn btn-success btn-block" data-loading-text="保存中..." ng-disabled="project_form.$invalid" ng-click="editProject()" value="保存" />
+        </div>
+    </div>
+</form>
+<div class="col-lg-4">
+    <div class="">
+        <img ng-src="{{project_info.logo}}" alt="" class="gravater img-border">
+        <p>
+            <a href="#/setting/logo" class="btn btn-xs btn-info mt20 ml20" id="choose_file">修改LOGO</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

@@ -29,7 +29,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav nav-main" >
-                <li class=""><a href="/">首页</a></li>
+                <li class=""><a href="/user">首页</a></li>
                 <li class=""><a href="#" target="_blank">帮助</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-login" ng-if="!user_info.username" ng-cloak>
@@ -64,7 +64,7 @@
         <div class="p20">
             <div class="bread-nav mt10 border-bottom">
                 <ol class="breadcrumb text-main">
-                    <li><a href="/api" class="text-main">主页</a></li>
+                    <li><a href="/user" class="text-main">主页</a></li>
                     <li><span id="group-name"></span></li>
                     <li class="active"><span>{{api_info.name}}</span></li>
                 </ol>
@@ -114,7 +114,7 @@
 <script src="/resource/func.min.js"></script>
 </html>
 <script>
-    pid = 2089;
+    pid = ${pid};
     $(document).ready(function() {
         $("#doc-nav").on('click', '.group-name', function(event) {
             event.preventDefault();

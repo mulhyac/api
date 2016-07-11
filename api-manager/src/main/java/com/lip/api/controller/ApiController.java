@@ -1,19 +1,22 @@
 package com.lip.api.controller;
 
+import com.alibaba.fastjson.JSONArray;
 import com.lip.api.core.model.Api;
 import com.lip.api.core.model.ApiGroup;
 import com.lip.api.core.service.ApiGroupService;
 import com.lip.api.core.service.ApiService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resources;
 import javax.inject.Inject;
+import java.beans.PropertyEditorSupport;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,12 +30,7 @@ public class ApiController {
     private ApiGroupService apiGroupService;
     @Autowired
     private ApiService apiService;
-    private static  String MESSAGE="message";
-
-    @RequestMapping(value = "{pageName}", method = RequestMethod.GET)
-    public ModelAndView goToPage(@PathVariable("pageName") String pageName) {
-        return new ModelAndView(pageName);
-    }
+    private   String MESSAGE="message";
 
     @RequestMapping(value = "/group/getGroup", method = RequestMethod.GET)
     public @ResponseBody Map<String,Object> getGroup(ApiGroup group) {
@@ -43,10 +41,10 @@ public class ApiController {
         return resultMap;
     }
     @RequestMapping(value = "/group/getList", method = RequestMethod.GET)
-    public @ResponseBody Map<String,Object> getGroupList() {
+    public @ResponseBody Map<String,Object> getGroupList(Integer pid) {
         Map<String,Object>resultMap=new HashMap<>();
         resultMap.put("success",true);
-        resultMap.put("data",apiGroupService.getGroupList());
+        resultMap.put("data",apiGroupService.getGroupList(pid));
         return resultMap;
     }
     @RequestMapping(value = "/group/create", method = RequestMethod.POST)
@@ -93,12 +91,12 @@ public class ApiController {
         return resultMap;
     }
     @RequestMapping(value = "/api/getList", method = RequestMethod.GET)
-    public @ResponseBody Map<String,Object> getApiList() {
+    public @ResponseBody Map<String,Object> getApiList(Integer pid,String key) {
         Map<String,Object>resultMap=new HashMap<>();
-        List<ApiGroup>groupList=apiGroupService.getGroupList();
+        List<ApiGroup>groupList=apiGroupService.getGroupList(pid);
         for(ApiGroup group:groupList)
         {
-            group.setApis(apiService.getApiList(group.getId()));
+            group.setApis(apiService.getApiList(group.getId(), key));
         }
         resultMap.put("data",groupList);
         resultMap.put("success",true);
@@ -142,5 +140,27 @@ public class ApiController {
         resultMap.put("success",true);
         resultMap.put(MESSAGE,"删除Api成功");
         return resultMap;
+    }
+    //转换空字符串为null
+    @InitBinder
+    public void initBinder(WebDataBinder binder)
+    {
+        //binder.registerCustomEditor(String.class,new StringTrimmerEditor(true));
+        binder.registerCustomEditor(List.class,new StringEmptyEditor());
+        binder.registerCustomEditor(Date.class,new StringEmptyEditor());
+        binder.registerCustomEditor(JSONArray.class,new StringEmptyEditor());
+    }
+    class  StringEmptyEditor extends PropertyEditorSupport
+    {
+        @Override
+        public void setAsText(String text) {
+            if(StringUtils.isEmpty(text))
+                setValue(null);
+            else {
+                String value = text.trim();
+                setValue(value);
+            }
+        }
+
     }
 }

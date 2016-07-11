@@ -37,7 +37,7 @@
                 <td width="200" class="ellipsis"><a ng-href="#/api/view/{{api.id}}">{{api.name}}</a></td>
                 <td>{{api.brief}}</td>
                 <td width="300" class="text-right">
-                    <a ng-href="http://{{project_info.token}}.test.apiview.com{{api.url}}" class="btn btn-xs btn-warning" target="_blank"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;测试</a>
+                    <a ng-href="{{api.url}}" class="btn btn-xs btn-warning" target="_blank"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;测试</a>
                     <a ng-href="#/api/view/{{api.id}}" class="btn btn-xs  btn-default"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;详情</a>
                     <a ng-href="#/api/copy/{{api.id}}" class="btn btn-xs  btn-primary"><i class="glyphicon glyphicon-file"></i>&nbsp;复制</a>
                     <a ng-href="#/api/edit/{{api.id}}" class="btn btn-xs  btn-info"><i class="glyphicon glyphicon-pencil"></i>&nbsp;修改</a>

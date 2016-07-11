@@ -1,11 +1,8 @@
 package com.lip.api.core.model;
 
 import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.Date;
 
 public class Api {
     private Integer id;
@@ -25,9 +22,13 @@ public class Api {
     private String parameter;
 
     private String remark;
+
+    private Date updateTime;
+
+    private Date createTime;
     private JSONArray params;
 
-    public Api(Integer id, Integer groupId, String name, String brief, String url, String method, String output, String parameter, String remark) {
+    public Api(Integer id, Integer groupId, String name, String brief, String url, String method, String output, String parameter, String remark, Date updateTime, Date createTime) {
         this.id = id;
         this.groupId = groupId;
         this.name = name;
@@ -37,6 +38,8 @@ public class Api {
         this.output = output;
         this.parameter = parameter;
         this.remark = remark;
+        this.updateTime = updateTime;
+        this.createTime = createTime;
     }
 
     public Api() {
@@ -114,18 +117,24 @@ public class Api {
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
-    public  JSONArray getParams()
-    {
-        return  JSONArray.parseArray(parameter);
-    }
-    public static  void main(String args[])
-    {
-        String src="[{para_name: \"userId\", para_type: \"string\", para_must: \"是\", para_intro: \"\"},{para_name: \"userId\", para_type: \"string\", para_must: \"是\", para_intro: \"\"}]";
-        JSONArray array=JSONArray.parseArray(src);
-        for(int i=0;i<array.size();i++)
-        {
-            System.out.println(array.getJSONObject(i));
-        }
 
+    public Date getUpdateTime() {
+        return updateTime;
     }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+    public  JSONArray getParams()
+        {
+            return  JSONArray.parseArray(parameter);
+        }
 }

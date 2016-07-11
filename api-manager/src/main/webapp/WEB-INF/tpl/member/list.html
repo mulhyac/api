@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="col-lg-4 col-md-12 ">
+    <div class="panel panel-default">
+        <div class="panel-heading">添加成员</div>
+        <div class="panel-body">
+            <form class="form-horizontal" method="POST" data-toggle="validator" role="form">
+                <div class="form-group has-feedback">
+                    <label for="" class="col-lg-4 col-md-3 control-label">邮箱：</label>
+                    <div class="col-lg-8 col-md-9">
+                        <input type="email" class="input form-control" name="email" data-error="请输入有效的邮箱地址" placeholder="用户邮箱" ng-model="member_data.email" required>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <label for="" class="col-lg-4 col-md-3 control-label">权限：</label>
+                    <div class="col-lg-8 col-md-9">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" class="" name="edit" ng-model="member_data.edit">可修改
+                        </label>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+                <div class="form-group has-feedback">
+                    <div class="col-lg-3 col-sm-8 col-lg-offset-4 col-md-offset-3">
+                        <button type="submit" class="btn btn-info" ng-click="memberAdd()"> <i class="glyphicon glyphicon-plus"></i> &nbsp;&nbsp;添加</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-lg-8 col-md-12 " ng-init="getMemberList()">
+    <div class="panel panel-primary">
+        <div class="panel-heading">成员列表</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-3 tc" ng-repeat="member in member_list">
+                    <img ng-src="{{member.gravater}}" class="img-border radius-circle" width="80" height="80">
+                    <p class="f16 b mt5">{{member.username}}</p>
+                    <p>
+                        <button class="btn btn-danger btn-xs" ng-click="memberDelete($index)">删除</button><span ng-if="member.edit==1" class="ml10 badge badge-info">可编辑</span></p>
+                </div>
+            </div>
+            <div class="alert alert-info" ng-if="member_list.length==0">
+                目前只有您能访问该文档，您可以在下面添加您团队成员的注册邮箱以便他们也能访问
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

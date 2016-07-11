@@ -75,6 +75,10 @@
 			<!-- 为生成的接口添加父接口-->
 			<property name="rootInterface" value=""/>
 		</javaClientGenerator>
+		<table tableName="activity" domainObjectName="Activity" />
+<!--		<table tableName="api" domainObjectName="Api" />
+		<table tableName="user" domainObjectName="User" />
+		<table tableName="project" domainObjectName="Project" />-->
 <!--		<table tableName="api" domainObjectName="Api" />-->
 		<!--<table tableName="api_group" domainObjectName="ApiGroup" />-->
 		<!--<table tableName="lession" schema="louis">

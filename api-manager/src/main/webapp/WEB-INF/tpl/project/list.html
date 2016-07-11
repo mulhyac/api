@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="row project-list" >
+    <div class="col-lg-3 col-md-4 col-sm-6" ng-repeat="p in project_list">
+        <div class="border project-list-item p20 mb20 bg-white">
+            <a class="l project-logo tc" ng-href="/p/{{p.id}}#/project/dashbord">
+                <img src="/resource/logo_gravater_dark.jpg" class="radius-circle img-border project-logo-md" alt="logo">
+            </a>
+            <div class="l project-text">
+                <a  class="text-main tc" ng-href="/p/{{p.id}}#/project/dashbord">
+                    <h4 class="project-name">{{p.name}}</h4>
+                </a>
+                <p class="project_intro text-opacity text-black p10">{{p.description}}</p>
+            </div>
+            <div class="cl"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

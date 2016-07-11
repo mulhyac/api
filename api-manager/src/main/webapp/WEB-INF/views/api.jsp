@@ -20,7 +20,7 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav nav-main">
-                <li class=""><a href="/api">首页</a></li>
+                <li class=""><a href="/user">首页</a></li>
                 <li class=""><a href="#">帮助</a></li>
             </ul>
             <p class="tc f20 navbar-text navbar-project-name" ng-cloak>{{project_info.name}}</p>
@@ -43,7 +43,7 @@
 <div class="body-content" ng-controller="ProjectController" ng-init="getProjectInfo()">
     <div class="border-right " id="side-menu-first" >
         <div class="tc mt20">
-            <a href="#project/dashbord"><img ng-src="{{project_info.logo}}" alt="" width="60"></a>
+            <a href="#project/dashbord"><img ng-src="/resource/logo_gravater_dark.jpg" alt="" width="60"></a>
         </div>
         <div id="first-menu-list" class="mt10">
             <ul class="first-level-nav menu-list">
@@ -51,7 +51,7 @@
                 <li><a href="#/api/list" ng-class="{active:nav_first=='api'}"><i class="glyphicon glyphicon-list"></i><span class='menu-title'>接口</span></a></li>
                 <li><a href="#/member/list" ng-class="{active:nav_first=='member'}"><i class="glyphicon glyphicon-user"></i><span class='menu-title'>成员</span></a></li>
                 <li><a href="#/setting/baseinfo" ng-class="{active:nav_first=='setting'}"><i class="glyphicon glyphicon-cog"></i><span class='menu-title'>设置</span></a></li>
-                <li><a ng-href="/doc" target="_blank"><i class="glyphicon glyphicon-book"></i><span class='menu-title'>阅读</span></a></li>
+                <li><a ng-href="/doc/{{project_info.id}}#/doc/dashbord" target="_blank"><i class="glyphicon glyphicon-book"></i><span class='menu-title'>阅读</span></a></li>
             </ul>
         </div>
     </div>
@@ -101,8 +101,6 @@
                     <li class=""><a href="#/setting/baseinfo" ng-class="{active:nav_second=='baseinfo'}">&nbsp;&nbsp;项目信息</a></li>
                     <!-- <li class=""><a href="#/setting/debug" ng-class="{active:nav_second=='debug'}">&nbsp;&nbsp;调试设置</a></li> -->
                     <li class=""><a href="#/setting/advance" ng-class="{active:nav_second=='advance'}">&nbsp;&nbsp;高级设置</a></li>
-                    <li class=""><a href="#/setting/export" ng-class="{active:nav_second=='export'}">&nbsp;&nbsp;导出文档</a></li>
-                    <li class=""><a href="#/setting/code" ng-class="{active:nav_second=='code'}">&nbsp;&nbsp;生成代码</a></li>
                 </ul>
             </div>
         </div>
@@ -119,7 +117,7 @@
     </div>
 </div>
 <script>
-    pid = 2089;
+    pid = ${pid};
 </script>
 <link rel="stylesheet" href="/resource/app.min.css">
 <link rel="stylesheet" href="https://cdn.bootcss.com/pnotify/3.0.0/pnotify.min.css">

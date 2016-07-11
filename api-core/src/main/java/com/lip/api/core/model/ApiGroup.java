@@ -5,16 +5,16 @@ import java.util.List;
 public class ApiGroup {
     private Integer id;
 
+    private Integer pid;
+
     private String name;
 
     private String title;
-
-
-
     private List<Api>apis;
 
-    public ApiGroup(Integer id, String name, String title) {
+    public ApiGroup(Integer id, Integer pid, String name, String title) {
         this.id = id;
+        this.pid = pid;
         this.name = name;
         this.title = title;
     }
@@ -29,6 +29,14 @@ public class ApiGroup {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getPid() {
+        return pid;
+    }
+
+    public void setPid(Integer pid) {
+        this.pid = pid;
     }
 
     public String getName() {
@@ -46,10 +54,12 @@ public class ApiGroup {
     public void setTitle(String title) {
         this.title = title == null ? null : title.trim();
     }
-    public List<Api> getApis() {
-        return apis;
+    public void setApis(List<Api>apis)
+    {
+        this.apis=apis;
     }
-    public void setApis(List<Api> apis) {
-        this.apis = apis;
+    public List<Api>getApis()
+    {
+        return apis;
     }
 }
