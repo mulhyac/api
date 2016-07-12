@@ -5,6 +5,8 @@ import com.lip.api.core.model.Api;
 import com.lip.api.core.model.ApiGroup;
 import com.lip.api.core.service.ApiGroupService;
 import com.lip.api.core.service.ApiService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,7 @@ public class ApiController {
     @Autowired
     private ApiService apiService;
     private   String MESSAGE="message";
+    private Logger logger= LoggerFactory.getLogger(this.getClass());
 
     @RequestMapping(value = "/group/getGroup", method = RequestMethod.GET)
     public @ResponseBody Map<String,Object> getGroup(ApiGroup group) {
@@ -45,6 +48,7 @@ public class ApiController {
         Map<String,Object>resultMap=new HashMap<>();
         resultMap.put("success",true);
         resultMap.put("data",apiGroupService.getGroupList(pid));
+        logger.info("apis:",resultMap);
         return resultMap;
     }
     @RequestMapping(value = "/group/create", method = RequestMethod.POST)
@@ -146,9 +150,9 @@ public class ApiController {
     public void initBinder(WebDataBinder binder)
     {
         //binder.registerCustomEditor(String.class,new StringTrimmerEditor(true));
-        binder.registerCustomEditor(List.class,new StringEmptyEditor());
-        binder.registerCustomEditor(Date.class,new StringEmptyEditor());
-        binder.registerCustomEditor(JSONArray.class,new StringEmptyEditor());
+        //binder.registerCustomEditor(List.class,new StringEmptyEditor());
+       // binder.registerCustomEditor(Date.class,new StringEmptyEditor());
+        //binder.registerCustomEditor(JSONArray.class,new StringEmptyEditor());
     }
     class  StringEmptyEditor extends PropertyEditorSupport
     {
@@ -158,7 +162,7 @@ public class ApiController {
                 setValue(null);
             else {
                 String value = text.trim();
-                setValue(value);
+                setValue(new Date());
             }
         }
 

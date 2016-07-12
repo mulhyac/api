@@ -26,7 +26,6 @@ public class Api {
     private Date updateTime;
 
     private Date createTime;
-    private JSONArray params;
 
     public Api(Integer id, Integer groupId, String name, String brief, String url, String method, String output, String parameter, String remark, Date updateTime, Date createTime) {
         this.id = id;

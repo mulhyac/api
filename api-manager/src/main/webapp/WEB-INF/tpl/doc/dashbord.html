@@ -16,7 +16,7 @@
                 <div class="l"><img ng-src="{{ac.gravater}}" alt="" width="40" height="40" class="radius-circle img-border"></div>
                 <div class="activity-wrap">
                     <div class="inner ">
-                        {{ac.username}}&nbsp;{{ac.action}}了&nbsp;{{ac.api_name}}&nbsp;接口：
+                        {{ac.username}}&nbsp;{{ac.action}}了&nbsp;{{ac.apiName}}&nbsp;接口：
                         <a ng-href="#/api/view/{{ac.api_id}}" ng-if="ac.action!='删除'">{{ac.brief}}</a>
                         <span ng-if="ac.action=='删除'">{{ac.brief}}</span>
                         <div class="time">

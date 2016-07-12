@@ -33,8 +33,8 @@
                 <li class=""><a href="#" target="_blank">帮助</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-login" ng-if="!user_info.username" ng-cloak>
-                <li><a href="/User/login"  class="" >登录</a></li>
-                <li><a href="/User/regist"  class="" >注册</a></li>
+                <li><a href="/user/login"  class="" >登录</a></li>
+                <li><a href="/user/regist"  class="" >注册</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right "  ng-if="user_info.username" ng-cloak>
                 <li class="dropdown">
@@ -64,7 +64,7 @@
         <div class="p20">
             <div class="bread-nav mt10 border-bottom">
                 <ol class="breadcrumb text-main">
-                    <li><a href="/user" class="text-main">主页</a></li>
+                    <li><a href="#/doc/dashbord" class="text-main">主页</a></li>
                     <li><span id="group-name"></span></li>
                     <li class="active"><span>{{api_info.name}}</span></li>
                 </ol>
