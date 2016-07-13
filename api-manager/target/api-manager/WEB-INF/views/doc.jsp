@@ -33,12 +33,12 @@
                 <li class=""><a href="#" target="_blank">帮助</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right navbar-login" ng-if="!user_info.username" ng-cloak>
-                <li><a href="/User/login"  class="" >登录</a></li>
-                <li><a href="/User/regist"  class="" >注册</a></li>
+                <li><a href="/user/login"  class="" >登录</a></li>
+                <li><a href="/user/regist"  class="" >注册</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right "  ng-if="user_info.username" ng-cloak>
                 <li class="dropdown">
-                    <a href="" class="dropdown-toggle" data-toggle="dropdown"><img ng-src="{{user_info.gravater}}" class="gravater img-border" > <b class="caret"></b></a>
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown"><img ng-src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABBCAIAAAABlV4SAAAABnRSTlMAAAAAAABupgeRAAAAkElEQVRoge3awQnDMBAAwSikgJSSUlyqS0kpKSEt6CHssdl5C3OL/BBIY39/Hhf3PHuABWow1GCowVCDoQZDDYYaDDUYajDUYKjBUIOhBkMNhhoMNRhqMNRgqMEwJtfNX2Nvv+/BX7vDPtRgqMFQg6EGQw2GF/6eb2a8sfb4tdbkbHf4l2ow1GCowVCDoQbDHxjbDUJh+uK9AAAAAElFTkSuQmCC" class="gravater img-border" > <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/user/#/project/create">创建项目</a></li>
                         <li><a href="/user/#/project/all">我的项目</a></li>
@@ -64,7 +64,7 @@
         <div class="p20">
             <div class="bread-nav mt10 border-bottom">
                 <ol class="breadcrumb text-main">
-                    <li><a href="/user" class="text-main">主页</a></li>
+                    <li><a href="#/doc/dashbord" class="text-main">主页</a></li>
                     <li><span id="group-name"></span></li>
                     <li class="active"><span>{{api_info.name}}</span></li>
                 </ol>

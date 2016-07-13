@@ -17,7 +17,7 @@
                 <div class="activity-wrap">
                     <div class="inner ">
                         {{ac.username}}&nbsp;{{ac.action}}了&nbsp;{{ac.apiName}}&nbsp;接口：
-                        <a ng-href="#/api/view/{{ac.api_id}}" ng-if="ac.action!='删除'">{{ac.brief}}</a>
+                        <a ng-href="#/api/view/{{ac.apiId}}" ng-if="ac.action!='删除'">{{ac.brief}}</a>
                         <span ng-if="ac.action=='删除'">{{ac.brief}}</span>
                         <div class="time">
                             <i class="glyphicon glyphicon-time"></i><span class="ml10">{{ac.time}}</span>
