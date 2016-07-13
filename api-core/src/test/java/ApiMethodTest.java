@@ -24,16 +24,9 @@ public class ApiMethodTest {
     @Test
     public void insertTest()
     {
-        ApiGroup group=new ApiGroup();
-        group.setId(1);
-        group.setName("用户管理");
-        group.setTitle("user");
-        groupService.insertApiGroup(group);
     }
     @Test
     public void testApi()
     {
-        Api api=apiService.getApi(11);
-        System.out.println(api.getParams().getJSONObject(0).getString("para_must"));
     }
 }
