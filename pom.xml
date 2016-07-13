@@ -40,5 +40,46 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <!-- 本地开发环境 -->
+            <id>local</id>
+            <properties>
+                <deploy.snapshot.url>http://101.200.75.108:8081/nexus/content/repositories/snapshots/</deploy.snapshot.url>
+                <deploy.release.url>http://101.200.75.108:8081/nexus/content/repositories/releases/</deploy.release.url>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!-- 编译服务器 -->
+            <id>server</id>
+            <properties>
+                <deploy.snapshot.url>http://10.165.114.231:8081/nexus/content/repositories/snapshots/</deploy.snapshot.url>
+                <deploy.release.url>http://10.165.114.231:8081/nexus/content/repositories/releases/</deploy.release.url>
+            </properties>
+        </profile>
+        <profile>
+            <!-- 杭州编译服务器 -->
+            <id>hzserver</id>
+            <properties>
+                <deploy.snapshot.url>http://10.160.12.242:8081/nexus/content/repositories/snapshots/</deploy.snapshot.url>
+                <deploy.release.url>http://10.160.12.242:8081/nexus/content/repositories/releases/</deploy.release.url>
+            </properties>
+        </profile>
+    </profiles>
 
+    <distributionManagement>
+        <snapshotRepository>
+            <id>bijie-snapshots</id>
+            <name>Bijie Project SNAPSHOTS</name>
+            <url>${deploy.snapshot.url}</url>
+        </snapshotRepository>
+        <repository>
+            <id>bijie-releases</id>
+            <name>Bijie Project Release</name>
+            <url>${deploy.release.url}</url>
+        </repository>
+    </distributionManagement>
 </project>
