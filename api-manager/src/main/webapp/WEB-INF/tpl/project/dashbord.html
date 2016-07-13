@@ -6,14 +6,6 @@
 </head>
 <body>
 
-<style>
-    #side-menu-second {
-        width: 0 !important;
-    }
-    #main-content {
-        margin-left: 80px !important;
-    }
-</style>
 <div class="col-lg-6" ng-init="getActivity()">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -21,10 +13,10 @@
         </div>
         <div class="panel-body">
             <div class="activity mt20 " ng-repeat="ac in activity">
-                <div class="l"><img ng-src="{{ac.gravater}}" alt="" class="radius-circle gravater-sm"></div>
+                <div class="l"><img ng-src="{{ac.gravater}}" alt="" width="40" height="40" class="radius-circle img-border"></div>
                 <div class="activity-wrap">
-                    <div class="inner">
-                        {{ac.userId}}&nbsp;{{ac.action}}了&nbsp;{{ac.apiName}}&nbsp;接口：
+                    <div class="inner ">
+                        {{ac.username}}&nbsp;{{ac.action}}了&nbsp;{{ac.apiName}}&nbsp;接口：
                         <a ng-href="#/api/view/{{ac.apiId}}" ng-if="ac.action!='删除'">{{ac.brief}}</a>
                         <span ng-if="ac.action=='删除'">{{ac.brief}}</span>
                         <div class="time">
@@ -53,7 +45,7 @@
         <div class="panel-body tc">
             <div class="col-xs-4">
                 <p class="f16">分组数量</p>
-                <span class="label label-primary">{{$stateParams.pid}}{{statistic_data.groupNum}}</span>
+                <span class="label label-primary">{{statistic_data.groupNum}}</span>
             </div>
             <div class="col-xs-4">
                 <p class="f16">接口数量</p>
@@ -71,12 +63,11 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <div class="col-lg-3 col-md-4 col-xs-6 tc" ng-repeat="member in member_list">
-                    <img ng-src="{{member.gravater}}" class="gravater-sm radius-circle margin-auto">
+                <div class="col-lg-3 tc" ng-repeat="member in member_list">
+                    <img ng-src="{{member.gravater}}" class="img-border radius-circle" width="50" height="50">
                     <p class="f16 b mt5">{{member.username}}</p>
                 </div>
             </div>
-            <div class="mt10"><a href="#/member/list" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-plus"></i><span class="ml5">添加成员</span></a></div>
         </div>
     </div>
 </div>

@@ -12,16 +12,16 @@
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.lip.api.core"/>
     <!-- 引入配置文件 -->
-    <!--<bean id="propertyConfigurer"-->
-          <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
-        <!--<property name="location" value="jdbc.properties"/>-->
-    <!--</bean>-->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties"/>
+    </bean>
 
     <!-- c3p0 配置数据源 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
           destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://123.56.232.253:3306/api?useUnicode=true&amp;characterEncoding=utf-8"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="user" value="bijiedev"/>
         <property name="password" value="wenfex123"/>
         <!--连接池中保留的最小连接数。 -->

@@ -58,8 +58,9 @@ public class ProjectController {
     @RequestMapping(value = "/project/create", method = RequestMethod.POST)
     public @ResponseBody Map<String,Object> createProject(Project project) {
         Map<String,Object>resultMap=new HashMap<>();
-        projectService.createProject(project);
+        int pid=projectService.createProject(project);
         resultMap.put("success",true);
+        resultMap.put("pid",pid);
         resultMap.put(MESSAGE,"添加项目成功");
         return resultMap;
     }

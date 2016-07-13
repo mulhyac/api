@@ -35,11 +35,12 @@ public class ProjectService {
      * 插入一个项目
      * @param project
      */
-    public void createProject(Project project)
+    public int createProject(Project project)
     {
         project.setCreateTime(new Date());
         project.setUpdateTime(project.getCreateTime());
         projectDao.insertSelective(project);
+        return projectDao.getInsertId();
     }
 
     /**
